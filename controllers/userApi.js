@@ -148,7 +148,7 @@ exports.register = async (req, res, next) => {
   );
   newUser.token = token;
   newUser.save();
-  res.status(400).send("User Successfully Login!");
+  res.status(200).send("User Successfully Login!");
 };
 
 exports.delete = async (req, res, next) => {

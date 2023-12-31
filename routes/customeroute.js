@@ -1,17 +1,22 @@
 const express = require("express");
 const route = express.Router();
 const user = require("../controllers/userApi");
+const path = require("path");
 
+// views
+route.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../template/index.html"));
+});
 // Auth
-route.post("/login", user.login);
-route.post("/register", user.register);
+route.post("/api/login", user.login);
+route.post("/api/register", user.register);
 
 // Crud
-route.post("/generateqrcode", user.generateqrcode);
-route.get("/getcustomers", user.getcustomers);
-route.get("/getcustomer/:id", user.getcustomer);
-route.put("/updatecustomer/:id", user.updatecustomer);
-route.post("/dispatch_customer/:id", user.dispatchCustomer);
-route.delete("/delete/:id", user.delete);
+route.post("/api/generateqrcode", user.generateqrcode);
+route.get("/api/getcustomers", user.getcustomers);
+route.get("/api/getcustomer/:id", user.getcustomer);
+route.put("/api/updatecustomer/:id", user.updatecustomer);
+route.post("/api/dispatch_customer/:id", user.dispatchCustomer);
+route.delete("/api/delete/:id", user.delete);
 
 module.exports = route;
