@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const router = require("./routes/customeroute");
-const serverless = require("serverless-http");
 
 require("dotenv").config();
 require("./dbConnections/connection");
